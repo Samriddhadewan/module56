@@ -47,6 +47,25 @@ async function run() {
 
     })
 
+    app.put("/coffees/:id", async(req, res)=>{
+      const id = req.params.id;
+      const filter = {_id: new ObjectId(id)};
+      const options ={upsert: true}
+      const updatedValue = req.body;
+      const updateDoc = {
+        $set : {
+          name: updatedValue.name,
+          chef: updatedValue.chef, 
+          supplier: updatedValue.supplier, 
+          category:updatedValue.category, 
+          details:updatedValue.details, 
+          photo:updatedValue.photo,
+        }
+      }
+      const result = await coffeeDB.updateOne(filter, updateDoc, options)
+      res.send(result);
+    })
+
 
     app.post("/coffees", async(req, res)=> {
         const newCoffee = req.body;
