@@ -13,6 +13,7 @@ import Home from './Components/Home.jsx';
 import SignUp from './Components/signUp.jsx';
 import Register from './Components/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import Users from './Components/Users.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register ></Register>
+      },
+      {
+        path: "/users",
+        element: <Users></Users>,
+        loader: ()=> fetch("http://localhost:5000/users")
       },
     ]
   },
