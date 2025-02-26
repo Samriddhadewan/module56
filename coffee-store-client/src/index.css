@@ -1,3 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+.active{
+    text-decoration: underline;
+    font-weight: bold;
+}

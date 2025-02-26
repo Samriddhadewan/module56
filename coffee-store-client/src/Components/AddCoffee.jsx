@@ -38,7 +38,7 @@ const AddCoffee = () => {
    
 
     return (
-    <div  className=" max-w-[1100px] my-40 mx-auto bg-[#F4F3F0] p-15 rounded-3xl">
+    <div  className=" max-w-[1100px] my-10 mx-auto bg-[#F4F3F0] p-15 rounded-3xl">
         <div>
         <h1 className="text-4xl text-center font-bold mb-10">Add Coffee</h1>
             <form onSubmit={handleNewCoffee} className="space-y-4">
