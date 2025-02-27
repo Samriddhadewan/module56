@@ -23,7 +23,7 @@ const Users = () => {
         if (result.isConfirmed) {
 
 
-          fetch(`http://localhost:5000/users/${id}`, {
+          fetch(`https://coffee-store-server-ruby-ten.vercel.app/users/${id}`, {
             method: "DELETE"
           })
           .then(res => res.json())
@@ -58,20 +58,23 @@ const Users = () => {
         <th>Name</th>
         <th>Email</th>
         <th>Create Date</th>
+        <th>Last Login</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       {/* row 1 */}
       {
-        users.map(user => <>
+        users.map((user, idx) => <>
         <tr key={user._id} className="bg-base-200">
-            <th>1</th>
+            <th>{idx + 1}</th>
             <td>{user?.name}</td>
             <td>{user?.email}</td>
+            
             <td>{
                 user?.createdAt ? `${user.createdAt}`:"Not Recorded"
             }</td>
+            <td>{user?.LastSignInTime}</td>
             <td className="space-x-2 ">
                 <button className="btn btn-info text-white">E</button>
                 <button className="btn btn-error text-white"

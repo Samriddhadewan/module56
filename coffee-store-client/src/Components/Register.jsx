@@ -17,11 +17,10 @@ const Register = () => {
       const user = result.user;
       const createdAt = user?.metadata?.creationTime;
       const newUser = {name, email, createdAt}
-      console.log(user)
       form.reset()
 
 
-      fetch("http://localhost:5000/users", {
+      fetch("https://coffee-store-server-ruby-ten.vercel.app/users", {
         method:"POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +28,7 @@ const Register = () => {
         body: JSON.stringify(newUser)
       })
       .then(res => res.json())
-      .then(data => console.log(data))
+      // .then(data => console.log(data))
 
 
     })
@@ -37,7 +36,7 @@ const Register = () => {
       const errorCode = error.code;
     const errorMessage = error.message;
     form.reset()
-    console.log(errorCode, errorMessage);
+    // console.log(errorCode, errorMessage);
     })
   }
 
